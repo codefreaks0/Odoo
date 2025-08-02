@@ -27,14 +27,14 @@ const router = express.Router();
  * @desc    Register new user
  * @access  Public
  */
-router.post('/register', validateRegistration, register);
+router.post('/register', ...validateRegistration, register);
 
 /**
  * @route   POST /api/auth/login
  * @desc    Login user
  * @access  Public
  */
-router.post('/login', validateLogin, login);
+router.post('/login', ...validateLogin, login);
 
 /**
  * @route   POST /api/auth/logout
@@ -55,7 +55,7 @@ router.get('/me', authenticateToken, getMe);
  * @desc    Update current user password
  * @access  Private
  */
-router.patch('/update-password', authenticateToken, validatePasswordChange, updatePassword);
+router.patch('/update-password', authenticateToken, ...validatePasswordChange, updatePassword);
 
 /**
  * @route   POST /api/auth/forgot-password

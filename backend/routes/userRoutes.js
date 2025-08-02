@@ -33,7 +33,7 @@ router.get('/profile', getProfile);
  * @desc    Update current user profile
  * @access  Private
  */
-router.patch('/profile', validateProfileUpdate, updateProfile);
+router.patch('/profile', ...validateProfileUpdate, updateProfile);
 
 /**
  * @route   DELETE /api/users/profile

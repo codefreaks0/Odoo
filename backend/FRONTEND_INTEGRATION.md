@@ -248,7 +248,7 @@ The backend provides real-time updates via Socket.IO:
 
 ```javascript
 // Connect to Socket.IO
-const socket = io('http://localhost:5000');
+const socket = io('http://localhost:6000');
 
 // Authenticate user
 socket.emit('authenticate', { token: 'your-jwt-token' });

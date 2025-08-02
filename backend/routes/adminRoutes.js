@@ -42,35 +42,35 @@ router.get('/users', getAllUsers);
  * @desc    Get user by ID (admin only)
  * @access  Private (admin)
  */
-router.get('/users/:id', validateUserId, getUserById);
+router.get('/users/:id', ...validateUserId, getUserById);
 
 /**
  * @route   PATCH /api/admin/users/:id
  * @desc    Update user (admin only)
  * @access  Private (admin)
  */
-router.patch('/users/:id', validateUserId, validateAdminUserUpdate, updateUser);
+router.patch('/users/:id', ...validateUserId, ...validateAdminUserUpdate, updateUser);
 
 /**
  * @route   DELETE /api/admin/users/:id
  * @desc    Delete user (admin only)
  * @access  Private (admin)
  */
-router.delete('/users/:id', validateUserId, deleteUser);
+router.delete('/users/:id', ...validateUserId, deleteUser);
 
 /**
  * @route   POST /api/admin/users/:id/ban
  * @desc    Ban user (admin only)
  * @access  Private (admin)
  */
-router.post('/users/:id/ban', validateUserId, banUser);
+router.post('/users/:id/ban', ...validateUserId, banUser);
 
 /**
  * @route   POST /api/admin/users/:id/unban
  * @desc    Unban user (admin only)
  * @access  Private (admin)
  */
-router.post('/users/:id/unban', validateUserId, unbanUser);
+router.post('/users/:id/unban', ...validateUserId, unbanUser);
 
 /**
  * @route   GET /api/admin/issues/flagged

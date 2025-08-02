@@ -62,7 +62,7 @@ A comprehensive backend API for CivicTrack - a civic issue reporting and trackin
    Create a `config.env` file in the root directory:
    ```env
    # Server Configuration
-   PORT=5000
+   PORT=6000
    NODE_ENV=development
 
    # MongoDB Configuration

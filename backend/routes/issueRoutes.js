@@ -79,7 +79,7 @@ const upload = multer({
 router.post('/', 
   optionalAuth,
   upload.array('images', parseInt(process.env.MAX_FILES_PER_ISSUE) || 5),
-  validateIssueCreation,
+  ...validateIssueCreation,
   validateAnonymousReporting,
   enforceLocationRestrictions,
   createIssue
@@ -91,7 +91,7 @@ router.post('/',
  * @access  Public
  */
 router.get('/', 
-  validateIssueFilters, 
+  ...validateIssueFilters, 
   enforceLocationRestrictions,
   validateUserLocation,
   enforceDistanceRestrictions,
@@ -106,7 +106,7 @@ router.get('/',
  * @access  Public
  */
 router.get('/map', 
-  validateIssueFilters, 
+  ...validateIssueFilters, 
   enforceLocationRestrictions,
   validateUserLocation,
   enforceDistanceRestrictions,
@@ -145,8 +145,8 @@ router.get('/:id',
 router.patch('/:id',
   authenticateToken,
   upload.array('images', parseInt(process.env.MAX_FILES_PER_ISSUE) || 5),
-  validateIssueId,
-  validateIssueUpdate,
+  ...validateIssueId,
+  ...validateIssueUpdate,
   updateIssue
 );
 
@@ -157,7 +157,7 @@ router.patch('/:id',
  */
 router.delete('/:id',
   authenticateToken,
-  validateIssueId,
+  ...validateIssueId,
   deleteIssue
 );
 
@@ -168,7 +168,7 @@ router.delete('/:id',
  */
 router.patch('/:id/status',
   authenticateToken,
-  validateIssueId,
+  ...validateIssueId,
   updateIssueStatus
 );
 
@@ -179,8 +179,8 @@ router.patch('/:id/status',
  */
 router.post('/:id/comments',
   authenticateToken,
-  validateIssueId,
-  validateComment,
+  ...validateIssueId,
+  ...validateComment,
   addComment
 );
 
@@ -191,8 +191,8 @@ router.post('/:id/comments',
  */
 router.post('/:id/flag',
   authenticateToken,
-  validateIssueId,
-  validateFlag,
+  ...validateIssueId,
+  ...validateFlag,
   flagIssue
 );
 
@@ -203,7 +203,7 @@ router.post('/:id/flag',
  */
 router.delete('/:id/flag',
   authenticateToken,
-  validateIssueId,
+  ...validateIssueId,
   removeFlag
 );
 
@@ -214,7 +214,7 @@ router.delete('/:id/flag',
  */
 router.post('/:id/upvote',
   authenticateToken,
-  validateIssueId,
+  ...validateIssueId,
   upvoteIssue
 );
 
@@ -225,7 +225,7 @@ router.post('/:id/upvote',
  */
 router.delete('/:id/upvote',
   authenticateToken,
-  validateIssueId,
+  ...validateIssueId,
   removeUpvote
 );
 
