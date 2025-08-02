@@ -335,7 +335,7 @@ Authorization: Bearer <jwt_token>
 ### Environment Variables for Production
 ```env
 NODE_ENV=production
-PORT=5000
+PORT=6000
 MONGODB_URL=your_production_mongodb_url
 JWT_SECRET=your_secure_jwt_secret
 CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
